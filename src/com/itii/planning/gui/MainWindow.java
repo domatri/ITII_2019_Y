@@ -1,5 +1,6 @@
 package com.itii.planning.gui;
 
+import javax.swing.Box;
 import javax.swing.JFrame;
 
 public  class   MainWindow
@@ -12,9 +13,16 @@ public  class   MainWindow
     private static MainWindow instance;
 
 
+    private PanneauBouton   m_panneauBoutons;
+
+
 
     private MainWindow()
     {
+        this.m_panneauBoutons    = new PanneauBouton();
+
+        this._create_layout();
+
         initialize();
     }
 
@@ -35,5 +43,15 @@ public  class   MainWindow
 
         this.validate();
         this.repaint();
+    }
+
+
+
+    private void    _create_layout()
+    {
+        Box mainBox = Box.createHorizontalBox();
+        this.add(mainBox);
+
+        mainBox.add(this.m_panneauBoutons);
     }
 }
